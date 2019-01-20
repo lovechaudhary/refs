@@ -3,15 +3,18 @@
 
   <hr />
 
-  <!-- <div *ngFor="let user of userData">
+  <div *ngFor="let user of userData">
     <mat-label>{{ user.name }}</mat-label>
     <br />
     <mat-form-field>
-      <mat-select placeholder="crew">
+      <mat-select
+        name="data"
+        [(ngModel)]="user.id"
+        [compareWith]="selectComparator"
+      >
         <mat-option
-          *ngFor="let crew of crewData"
-          [value]="crew"
-          (click)="onResetCrewClear()"
+          *ngFor="let crew of crewData; let i = index"
+          [value]="crew.crewId"
         >
           {{ crew.crewName }}
         </mat-option>
@@ -20,8 +23,8 @@
     <hr />
   </div>
 </mat-card>
-<button (click)="onClearCrew()">Clear crew</button> -->
-  <div *ngFor="let user of userData">
+<button (click)="onClearCrew()">Clear crew</button>
+<!-- <div *ngFor="let user of userData">
     {{ user.name }}
     <select>
       <option value=""></option>
@@ -33,5 +36,5 @@
       >
     </select>
   </div>
-  <button (click)="onClearCrew()">Clear</button>
-</mat-card>
+  <button (click)="onClearCrew()">Clear</button> -->
+<!-- </mat-card> -->
