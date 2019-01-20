@@ -1,0 +1,37 @@
+<mat-card>
+  <p>test works!</p>
+
+  <hr />
+
+  <!-- <div *ngFor="let user of userData">
+    <mat-label>{{ user.name }}</mat-label>
+    <br />
+    <mat-form-field>
+      <mat-select placeholder="crew">
+        <mat-option
+          *ngFor="let crew of crewData"
+          [value]="crew"
+          (click)="onResetCrewClear()"
+        >
+          {{ crew.crewName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <hr />
+  </div>
+</mat-card>
+<button (click)="onClearCrew()">Clear crew</button> -->
+  <div *ngFor="let user of userData">
+    {{ user.name }}
+    <select>
+      <option value=""></option>
+      <option
+        *ngFor="let crew of crewData; let i = index"
+        [selected]="crewClear ? '' : this.crewData[i].userId.includes(user.id)"
+        [value]="crew.crewId"
+        >{{ crew.crewName }} {{ user.id }} {{ crew.creId }}</option
+      >
+    </select>
+  </div>
+  <button (click)="onClearCrew()">Clear</button>
+</mat-card>
